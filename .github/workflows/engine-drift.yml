@@ -23,6 +23,11 @@ on:
     # Weekly, Monday 05:17 UTC. Offset from the hour (validate.yml uses 06:00)
     # to avoid the top-of-hour GitHub Actions scheduler congestion.
     - cron: "17 5 * * 1"
+  # TEMPORARY (fork test run only): repository_dispatch used because the
+  # environment token lacks actions:write for workflow_dispatch. Removed
+  # again after the verification run; not part of the reviewed workflow.
+  repository_dispatch:
+    types: [engine-drift-test]
   workflow_dispatch:
     inputs:
       engine_ref:
